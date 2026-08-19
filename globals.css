@@ -1,0 +1,1608 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap");
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #070707;
+  color: #f4f4ef;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+button {
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100px;
+
+  padding: 0 7vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+}
+
+.logo {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 6px;
+
+  transition: 0.4s ease;
+}
+
+.logo:hover {
+  letter-spacing: 8px;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 48px;
+}
+
+.nav-links a {
+  position: relative;
+
+  padding: 10px 0;
+
+  color: #aaa9a3;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  letter-spacing: 2.5px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 2px;
+
+  width: 0;
+  height: 1px;
+
+  background: #dfff00;
+
+  box-shadow:
+    0 0 6px rgba(223, 255, 0, 0.7),
+    0 0 14px rgba(223, 255, 0, 0.3);
+
+  transition: width 0.35s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-space {
+  width: 60px;
+}
+
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.menu-toggle {
+  display: none;
+
+  width: 34px;
+  height: 30px;
+
+  padding: 4px 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-toggle span {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background: #eeeeea;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease,
+    width 0.35s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 47% 53%;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 48%,
+      rgba(214, 220, 180, 0.09),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(255, 255, 255, 0.025),
+      transparent 25%
+    ),
+    #070707;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+  height: 100%;
+
+  left: 47%;
+
+  background: linear-gradient(
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+}
+
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 10vw;
+  padding-top: 70px;
+}
+
+.eyebrow {
+  margin-bottom: 28px;
+
+  color: #9d9d97;
+
+  font-size: 9px;
+  letter-spacing: 4px;
+
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero h1 {
+  font-size: clamp(58px, 7vw, 108px);
+
+  line-height: 0.88;
+
+  letter-spacing: -6px;
+
+  font-weight: 400;
+
+  animation: fadeUp 1s 0.1s ease both;
+}
+
+.hero h1 span {
+  color: #8c8c87;
+
+  font-family: "Playfair Display", serif;
+
+  font-style: italic;
+
+  font-weight: 400;
+}
+
+.description {
+  max-width: 390px;
+
+  margin-top: 38px;
+
+  color: #85857f;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+  animation: fadeUp 1s 0.2s ease both;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.discover-btn {
+  position: relative;
+
+  width: fit-content;
+
+  margin-top: 35px;
+
+  padding: 17px 25px;
+
+  display: inline-flex;
+  align-items: center;
+
+  color: #eeeeea;
+
+  background: rgba(255, 255, 255, 0.015);
+
+  border: 1px solid #353531;
+
+  font-size: 9px;
+
+  letter-spacing: 2.5px;
+
+  overflow: hidden;
+
+  transition:
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.discover-btn::before {
+  content: "";
+
+  position: absolute;
+
+  left: -100%;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: #dfff00;
+
+  transition: left 0.4s ease;
+
+  z-index: -1;
+}
+
+.discover-btn span {
+  margin-left: 25px;
+
+  font-size: 16px;
+
+  transition: transform 0.3s ease;
+}
+
+.discover-btn:hover {
+  color: #050505;
+
+  border-color: #dfff00;
+
+  transform: translateY(-3px);
+}
+
+.discover-btn:hover::before {
+  left: 0;
+}
+
+.discover-btn:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider-info {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 60px;
+
+  animation: fadeUp 1s 0.3s ease both;
+}
+
+.counter {
+  min-width: 48px;
+
+  color: #e7e7e1;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+
+.counter span {
+  color: #555550;
+
+  margin-left: 4px;
+}
+
+.slider-lines {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.slider-line {
+  width: 25px;
+  height: 1px;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  background: #363632;
+
+  transition:
+    width 0.5s ease,
+    background 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.slider-line.active {
+  width: 55px;
+
+  background: #dfff00;
+
+  box-shadow:
+    0 0 7px rgba(223, 255, 0, 0.8),
+    0 0 16px rgba(223, 255, 0, 0.3);
+}
+
+.arrow-btn {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #777770;
+
+  background: transparent;
+
+  border: 1px solid #292925;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.arrow-btn:hover {
+  color: #dfff00;
+
+  border-color: #dfff00;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image-container {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.glow {
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  border-radius: 50%;
+
+  background: rgba(205, 220, 155, 0.07);
+
+  filter: blur(90px);
+
+  animation: breathing 5s ease-in-out infinite;
+}
+
+.image-ring {
+  position: absolute;
+
+  width: 570px;
+  height: 570px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.035);
+
+  animation: rotateRing 30s linear infinite;
+}
+
+.image-ring::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  top: 15%;
+  right: 12%;
+
+  border-radius: 50%;
+
+  background: #dfff00;
+
+  box-shadow: 0 0 12px #dfff00;
+}
+
+.perfume-image {
+  position: relative;
+
+  z-index: 4;
+
+  width: min(510px, 76%);
+
+  max-height: 650px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 35px 55px rgba(0, 0, 0, 0.85))
+    drop-shadow(0 0 25px rgba(255, 255, 255, 0.04));
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+
+  animation: floating 5s ease-in-out infinite;
+}
+
+.image-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.image-hidden {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.product-info {
+  position: absolute;
+
+  right: 7vw;
+  bottom: 75px;
+
+  z-index: 10;
+
+  max-width: 260px;
+
+  text-align: right;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.info-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.product-info p {
+  margin-bottom: 7px;
+
+  color: #777770;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+}
+
+.product-info h2 {
+  margin-bottom: 10px;
+
+  font-size: 28px;
+
+  font-weight: 400;
+
+  letter-spacing: 6px;
+}
+
+.product-info span {
+  display: block;
+
+  color: #666660;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   COLLECTION
+========================= */
+
+.collection {
+  position: relative;
+
+  padding: 150px 8vw;
+
+  background: #090909;
+}
+
+.collection::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 8vw;
+
+  width: 84%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #272723,
+    transparent
+  );
+}
+
+.section-label {
+  margin-bottom: 25px;
+
+  color: #777771;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+}
+
+.collection h2,
+.story h2,
+.discover h2 {
+  font-size: clamp(42px, 5vw, 75px);
+
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  letter-spacing: -4px;
+}
+
+.collection h2 span,
+.story h2 span,
+.discover h2 span {
+  color: #888883;
+
+  font-family: "Playfair Display", serif;
+
+  font-style: italic;
+}
+
+
+/* =========================
+   COLLECTION GRID
+========================= */
+
+.collection-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+
+  margin-top: 75px;
+}
+
+.collection-card {
+  position: relative;
+
+  height: 440px;
+
+  overflow: hidden;
+
+  padding: 0;
+
+  background: #101010;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  border: 1px solid transparent;
+
+  transition:
+    transform 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #393934;
+}
+
+.collection-card.selected {
+  border-color: #dfff00;
+
+  box-shadow:
+    0 0 0 1px rgba(223, 255, 0, 0.08),
+    0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.collection-card:hover img {
+  transform: scale(1.08);
+
+  filter: brightness(1.08);
+}
+
+.collection-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.1) 65%
+    );
+
+  pointer-events: none;
+}
+
+.card-overlay {
+  position: absolute;
+
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 5;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: end;
+}
+
+.card-overlay > span {
+  color: #777771;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.card-overlay div {
+  text-align: right;
+}
+
+.card-overlay p {
+  margin-bottom: 7px;
+
+  color: #999992;
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+}
+
+.card-overlay h3 {
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+  min-height: 75vh;
+
+  padding: 150px 10vw;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 100px;
+
+  background: #070707;
+}
+
+.story-content {
+  position: relative;
+
+  max-width: 480px;
+
+  padding-left: 55px;
+
+  border-left: 1px solid #292925;
+}
+
+.story-number {
+  position: absolute;
+
+  left: -10px;
+  top: -55px;
+
+  color: #dfff00;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.story-text {
+  color: #aaa9a3;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 25px;
+
+  line-height: 1.5;
+}
+
+.story-text.small {
+  margin-top: 25px;
+
+  color: #696963;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 12px;
+
+  line-height: 2;
+}
+
+
+/* =========================
+   DISCOVER
+========================= */
+
+.discover {
+  min-height: 80vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 100px 20px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(210, 220, 170, 0.08),
+      transparent 35%
+    ),
+    #090909;
+}
+
+.discover-content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.discover h2 {
+  font-size: clamp(50px, 7vw, 100px);
+}
+
+.discover-content > p:not(.section-label) {
+  margin-top: 30px;
+
+  color: #686862;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  min-height: 100px;
+
+  padding: 35px 8vw;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #171714;
+
+  color: #5f5f59;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+}
+
+.footer-logo {
+  color: #eeeeea;
+
+  font-size: 15px;
+
+  letter-spacing: 5px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes breathing {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+  background: #dfff00;
+  color: #050505;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .navbar {
+    padding: 0 5vw;
+  }
+
+  .nav-links {
+    gap: 28px;
+  }
+
+  .hero {
+    grid-template-columns: 45% 55%;
+  }
+
+  .hero-content {
+    padding-left: 7vw;
+  }
+
+  .hero h1 {
+    font-size: clamp(55px, 7vw, 82px);
+  }
+
+  .perfume-image {
+    width: min(440px, 80%);
+  }
+
+  .image-ring {
+    width: 500px;
+    height: 500px;
+  }
+
+  .glow {
+    width: 400px;
+    height: 400px;
+  }
+
+  .collection {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
+}
+
+
+/* =========================================================
+   MOBILE NAV + LAYOUT
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+
+  .navbar {
+    position: absolute;
+
+    height: 80px;
+
+    padding: 0 6vw;
+  }
+
+  .nav-space {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+
+    position: relative;
+
+    z-index: 110;
+  }
+
+  .nav-links {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    left: auto;
+
+    width: min(320px, 82vw);
+    height: 100vh;
+
+    transform: translateX(100%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 28px;
+
+    padding: 40px;
+
+    background: rgba(8, 8, 8, 0.98);
+
+    border-left: 1px solid #242420;
+
+    transition: transform 0.45s ease;
+
+    backdrop-filter: blur(15px);
+  }
+
+  .nav-links.menu-open {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 12px 0;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+  }
+
+  .nav-links a::after {
+    bottom: 0;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding-top: 80px;
+  }
+
+  .hero::before {
+    display: none;
+  }
+
+  .hero-content {
+    min-height: auto;
+
+    padding:
+      70px 7vw
+      20px;
+
+    justify-content: flex-start;
+  }
+
+  .eyebrow {
+    margin-bottom: 22px;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 13vw, 72px);
+
+    letter-spacing: -4px;
+  }
+
+  .description {
+    max-width: 500px;
+
+    margin-top: 28px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+  }
+
+  .discover-btn {
+    margin-top: 28px;
+
+    padding: 15px 19px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+  .slider-info {
+    margin-top: 38px;
+
+    gap: 12px;
+  }
+
+  .slider-line {
+    width: 20px;
+  }
+
+  .slider-line.active {
+    width: 40px;
+  }
+
+
+  /* HERO IMAGE */
+
+  .hero-image-container {
+    min-height: 570px;
+
+    width: 100%;
+  }
+
+  .perfume-image {
+    width: min(390px, 82vw);
+
+    max-height: 500px;
+  }
+
+  .image-ring {
+    width: min(430px, 90vw);
+    height: min(430px, 90vw);
+  }
+
+  .glow {
+    width: min(350px, 70vw);
+    height: min(350px, 70vw);
+  }
+
+  .product-info {
+    right: 7vw;
+
+    bottom: 30px;
+
+    max-width: 220px;
+  }
+
+  .product-info h2 {
+    font-size: 23px;
+
+    letter-spacing: 5px;
+  }
+
+  .product-info span {
+    font-size: 9px;
+  }
+
+
+  /* COLLECTION */
+
+  .collection {
+    padding:
+      100px 7vw;
+  }
+
+  .collection h2,
+  .story h2 {
+    font-size: clamp(40px, 11vw, 62px);
+
+    letter-spacing: -3px;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    margin-top: 50px;
+  }
+
+  .collection-card {
+    height: 430px;
+  }
+
+
+  /* STORY */
+
+  .story {
+    min-height: auto;
+
+    padding:
+      110px 8vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 65px;
+  }
+
+  .story-content {
+    width: 100%;
+
+    padding-left: 35px;
+  }
+
+  .story-text {
+    font-size: 21px;
+  }
+
+  .story-text.small {
+    font-size: 11px;
+  }
+
+
+  /* DISCOVER */
+
+  .discover {
+    min-height: 65vh;
+
+    padding: 80px 7vw;
+  }
+
+  .discover h2 {
+    font-size: clamp(48px, 13vw, 72px);
+
+    letter-spacing: -4px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    min-height: 150px;
+
+    padding:
+      35px 7vw;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    height: 70px;
+
+    padding: 0 6vw;
+  }
+
+  .logo {
+    font-size: 14px;
+
+    letter-spacing: 4px;
+  }
+
+  .menu-toggle {
+    width: 29px;
+    height: 25px;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
+  /* HERO */
+
+  .hero-content {
+    padding:
+      65px 7vw
+      15px;
+  }
+
+  .hero h1 {
+    font-size: 49px;
+
+    letter-spacing: -3px;
+  }
+
+  .description {
+    font-size: 11px;
+
+    max-width: 320px;
+  }
+
+  .discover-btn {
+    width: 100%;
+
+    justify-content: space-between;
+
+    max-width: 310px;
+  }
+
+  .slider-info {
+    margin-top: 32px;
+
+    gap: 8px;
+  }
+
+  .counter {
+    min-width: 40px;
+
+    font-size: 10px;
+  }
+
+  .arrow-btn {
+    width: 25px;
+    height: 25px;
+  }
+
+
+  /* IMAGE */
+
+  .hero-image-container {
+    min-height: 480px;
+  }
+
+  .perfume-image {
+    width: 82vw;
+
+    max-height: 420px;
+  }
+
+  .image-ring {
+    width: 330px;
+    height: 330px;
+  }
+
+  .glow {
+    width: 270px;
+    height: 270px;
+
+    filter: blur(70px);
+  }
+
+  .product-info {
+    bottom: 20px;
+
+    right: 6vw;
+
+    max-width: 190px;
+  }
+
+  .product-info p {
+    font-size: 7px;
+  }
+
+  .product-info h2 {
+    font-size: 20px;
+
+    letter-spacing: 4px;
+  }
+
+  .product-info span {
+    font-size: 8px;
+  }
+
+
+  /* COLLECTION */
+
+  .collection {
+    padding:
+      85px 6vw;
+  }
+
+  .section-label {
+    font-size: 8px;
+
+    letter-spacing: 3px;
+  }
+
+  .collection h2,
+  .story h2 {
+    font-size: 39px;
+
+    letter-spacing: -2px;
+  }
+
+  .collection-card {
+    height: 390px;
+  }
+
+  .card-overlay {
+    left: 17px;
+    right: 17px;
+    bottom: 18px;
+  }
+
+
+  /* STORY */
+
+  .story {
+    padding:
+      85px 7vw;
+  }
+
+  .story-text {
+    font-size: 19px;
+  }
+
+
+  /* DISCOVER */
+
+  .discover {
+    min-height: 60vh;
+
+    padding:
+      70px 6vw;
+  }
+
+  .discover h2 {
+    font-size: 44px;
+
+    letter-spacing: -2px;
+  }
+
+  .discover-content > p:not(.section-label) {
+    font-size: 10px;
+  }
+
+
+  /* FOOTER */
+
+  footer {
+    font-size: 7px;
+
+    letter-spacing: 2px;
+  }
+
+  .footer-logo {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero-image-container {
+    min-height: 430px;
+  }
+
+  .perfume-image {
+    width: 88vw;
+  }
+
+  .image-ring {
+    width: 290px;
+    height: 290px;
+  }
+
+  .product-info {
+    max-width: 165px;
+  }
+
+  .product-info h2 {
+    font-size: 18px;
+  }
+
+  .collection-card {
+    height: 350px;
+  }
+}
